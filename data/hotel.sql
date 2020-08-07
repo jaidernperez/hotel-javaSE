@@ -138,7 +138,7 @@ values (1, 1, 2, 70000, '102');
 insert into HABITACION (ID_PISO, ID_TIPO, ID_ESTADO, PRECIO, NOMBRE)
 values (1, 3, 1, 200000, '103');
 insert into HABITACION (ID_PISO, ID_TIPO, ID_ESTADO, PRECIO, NOMBRE)
-values (1, 4, 3, 300000, '101');
+values (1, 4, 3, 300000, '104');
 
 -- Table CLIENTE
 insert into CLIENTE (NOMBRES, APELLIDOS, CEDULA, CORREO, TELEFONO)
