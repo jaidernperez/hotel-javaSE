@@ -324,8 +324,10 @@ public class FormAddReservation extends javax.swing.JInternalFrame {
             Client client = clientController.getByNameClient(clientComboBox);
             Room room = roomController.getByNameRoom(roomComboBox);
             startDate = new java.sql.Date(datePickerStartDate.getDate().getTime());
-            finalDate = new java.sql.Date(datePickerFinalDate.getDate().getTime());
-
+            finalDate = null;
+            if (datePickerFinalDate.getDate() != null) {
+                finalDate = new java.sql.Date(datePickerFinalDate.getDate().getTime());
+            }
 
             boolean stateBoolean = getBooleanByIndex(state);
             ReservationController reservationController = new ReservationController();
@@ -396,15 +398,13 @@ public class FormAddReservation extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Debe seleccionar la fecha de inicio");
             requestFocus();
             validate = false;
-        } else if (datePickerFinalDate.getDate() == null) {
-            JOptionPane.showMessageDialog(null, "Debe seleccionar la fecha de salida");
-            requestFocus();
-            validate = false;
-        } else if (finalDate.before(startDate)) {
-            String message = "La fecha de inicio debe estar antes que la fecha de salida";
-            JOptionPane.showMessageDialog(null, message);
-            requestFocus();
-            validate = false;
+        } else if (finalDate != null) {
+            if (finalDate.before(startDate)) {
+                String message = "La fecha de inicio debe estar antes que la fecha de salida";
+                JOptionPane.showMessageDialog(null, message);
+                requestFocus();
+                validate = false;
+            }
         } else if (state == 0) {
             JOptionPane.showMessageDialog(null, "Debe seleccionar un estado");
             requestFocus();
