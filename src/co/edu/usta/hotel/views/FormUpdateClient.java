@@ -377,23 +377,23 @@ public class FormUpdateClient extends javax.swing.JInternalFrame {
         email = boxEmail.getText();
         telephone = boxTelephone.getText();
 
-        if (!Validate.isValidString(newDni, 7)) {
+        if (Validate.isValidString(newDni, 7)) {
             JOptionPane.showMessageDialog(null, "El documento debe tener mínimo 7 caracteres");
             boxNewDni.requestFocus();
             validate = false;
-        } else if (!Validate.isValidString(names, 3)) {
+        } else if (Validate.isValidString(names, 3)) {
             JOptionPane.showMessageDialog(null, "El nombre debe tener mínimo 3 caracteres");
             boxNames.requestFocus();
             validate = false;
-        } else if (!Validate.isValidString(surnames, 4)) {
+        } else if (Validate.isValidString(surnames, 4)) {
             JOptionPane.showMessageDialog(null, "El apellido debe tener mínimo 4 caracteres");
             boxSurnames.requestFocus();
             validate = false;
-        } else if (!Validate.isValidMail(email)) {
+        } else if (Validate.isValidMail(email)) {
             JOptionPane.showMessageDialog(null, "El correo no es válido");
             boxEmail.requestFocus();
             validate = false;
-        } else if (!Validate.isValidString(telephone, 10)) {
+        } else if (Validate.isValidString(telephone, 10)) {
             JOptionPane.showMessageDialog(null, "El teléfono debe tener mínimo 10 caracteres");
             boxTelephone.requestFocus();
             validate = false;

@@ -444,7 +444,7 @@ public class FormUpdateRoom extends javax.swing.JInternalFrame {
         typeName = comboBoxType.getSelectedIndex();
         stateName = comboBoxState.getSelectedIndex();
 
-        if (!Validate.isValidString(name, 2)) {
+        if (Validate.isValidString(name, 2)) {
             JOptionPane.showMessageDialog(null, "El nombre debe tener mínimo 2 caracteres");
             requestFocus();
             validate = false;

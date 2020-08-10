@@ -396,12 +396,12 @@ public class FormAddRoom extends javax.swing.JInternalFrame {
         typeName = comboBoxType.getSelectedIndex();
         stateName = comboBoxState.getSelectedIndex();
 
-        if (!Validate.isValidString(name, 2)) {
+        if (Validate.isValidString(name, 2)) {
             JOptionPane.showMessageDialog(null, "El nombre debe tener mínimo 2 caracteres");
             requestFocus();
             validate = false;
-        } else if ((!Validate.isValidNumber(price)) || Float.parseFloat(boxPrice.getText()) < 5000) {
-            JOptionPane.showMessageDialog(null, "El precio debe ser un número menor a 5000");
+        } else if ((Validate.isValidNumber(price)) || Float.parseFloat(boxPrice.getText()) < 20000) {
+            JOptionPane.showMessageDialog(null, "El precio debe ser un número mayor a 20000");
             requestFocus();
             validate = false;
         } else if (floorName == 0) {

@@ -4,9 +4,9 @@ public class Validate {
 
     public static boolean isValidMail(String mail) {
         if (mail.isEmpty()) {
-            return false;
+            return true;
         }
-        return mail.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$");
+        return !mail.matches("^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$");
     }
 
     public static boolean isValidPassword(String password) {
@@ -20,11 +20,11 @@ public class Validate {
 
     public static boolean isValidString(String data, int size) {
         if (data.isEmpty()) {
-            return false;
+            return true;
         }
         int length;
         length = data.length();
-        return length >= size;
+        return length < size;
     }
 
     public static boolean isValidDouble(String data) {
@@ -39,10 +39,10 @@ public class Validate {
     public static boolean isValidNumber(String data) {
         String pattern;
         if (data.isEmpty()) {
-            return false;
+            return true;
         }
         pattern = "[0-9]*";
-        return data.matches(pattern);
+        return !data.matches(pattern);
     }
 
     public static boolean isValidDate(String data){
