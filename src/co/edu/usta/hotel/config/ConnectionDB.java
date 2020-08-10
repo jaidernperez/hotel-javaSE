@@ -24,6 +24,7 @@ public class ConnectionDB {
         if (connection == null) {
             String URL = "jdbc:" + ParametersDB.DRIVER + "://" + ParametersDB.HOST + ":" + ParametersDB.PORT + "/" +
                     ParametersDB.DB_NAME;
+            URL+= "?useSSL=false";
 
             connection = DriverManager.getConnection(URL, ParametersDB.USER_NAME, ParametersDB.PASSWORD);
             System.out.println("Connected with data base successfully");
